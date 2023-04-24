@@ -2,6 +2,7 @@ package com.example.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -26,20 +27,21 @@ class MainActivity : AppCompatActivity() {
             myDrawerLayout,
             mtb,
             R.string.navigation_drawer_open,
-            R.string.navigation_drawer_open
+            R.string.navigation_drawer_close
         )
 
         myDrawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (myDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    myDrawerLayout.closeDrawer(GravityCompat.START)
+                } else {
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
     }
 
-    @Deprecated("Deprecated in Java")
-    @Override
-    override fun onBackPressed() {
-        if (myDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            myDrawerLayout.closeDrawer(GravityCompat.START)
-        }else {
-            super.onBackPressed()
-        }
-    }
 }

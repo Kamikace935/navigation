@@ -7,6 +7,7 @@
     <string name="menu_calendario">Calendario</string>
     <string name="menu_Add">Añadir Evento</string>
     <string name="menu_salir">Salir</string>
-    <string name="mi_nombre">Julio Hornos Blázquez</string>
+    <string name="mi_nombre">Pablo Marián Vasco</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion_imagen_cabecera">Logo Instituto</string>
 </resources>
